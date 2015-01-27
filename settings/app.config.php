@@ -2,6 +2,10 @@
 
 namespace acuthbert\test;
 
+require_once "vendor/rhubarbphp/rhubarb/src/UrlHandlers/ClassMappedUrlHandler.php";
+require_once "src/Layouts/DefaultLayout.php";
+
+use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Module;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 
@@ -16,6 +20,11 @@ class MyAppModule extends Module
                 "/" => new ClassMappedUrlHandler( "acuthbert\\test\\Index" )
             ]
         );
+    }
+
+    protected function registerDependantModules()
+    {
+        Module::registerModule( new LayoutModule( '\acuthbert\test\Layouts\DefaultLayout' ) );
     }
 }
 
