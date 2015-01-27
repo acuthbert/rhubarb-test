@@ -15,5 +15,12 @@
     "require":
 	{
 		"rhubarbphp/rhubarb": "dev-crown"
-	}
+	},
+    "autoload":
+    {
+        "psr-4":
+        {
+            "acuthbert\\test\\": "src/"
+        }
+    }
 }
